@@ -102,17 +102,17 @@ public class OrderActivity extends AppCompatActivity {
              int doubleDouble = Integer.parseInt(doubleDoubleET.getText().toString());
              anOrder.setDoubleDoubles(doubleDouble);
              int cheeseburger = Integer.parseInt(cheeseBurgerET.getText().toString());
-             anOrder.setCheeseburgers(Integer.parseInt(cheeseBurgerET.getText().toString()));
+             anOrder.setCheeseburgers(cheeseburger);
              int frenchFries = Integer.parseInt(frenchFriesET.getText().toString());
-             anOrder.setFrenchFries(Integer.parseInt(frenchFriesET.getText().toString()));
+             anOrder.setFrenchFries(frenchFries);
              int shakes = Integer.parseInt(shakesET.getText().toString());
-             anOrder.setShakes(Integer.parseInt(shakesET.getText().toString()));
+             anOrder.setShakes(shakes);
              int smallDrink = Integer.parseInt(drinkSmallET.getText().toString());
-             anOrder.setSmallDrinks(Integer.parseInt(drinkSmallET.getText().toString()));
+             anOrder.setSmallDrinks(smallDrink);
              int mediumDrink = Integer.parseInt(drinkMediumET.getText().toString());
-             anOrder.setMediumDrinks(Integer.parseInt(drinkMediumET.getText().toString()));
+             anOrder.setMediumDrinks(mediumDrink);
              int largeDrink = Integer.parseInt(drinkLargeET.getText().toString());
-             anOrder.setLargeDrinks(Integer.parseInt(drinkLargeET.getText().toString()));
+             anOrder.setLargeDrinks(largeDrink);
 
          }catch (NumberFormatException e) {
              e.printStackTrace();
