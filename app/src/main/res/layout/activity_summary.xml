@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/summary_background"
+    tools:context="edu.orangecoastcollege.cs273.ttran1272.inandout.SummaryActivity">
+
+
+    <TextView
+        android:id="@+id/orderTotalLabelTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginBottom="30dp"
+        android:text="@string/order_total_label"/>
+
+    <TextView
+        android:id="@+id/orderTotalTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/orderTotalLabelTV"
+        android:layout_toRightOf="@id/orderTotalLabelTV"
+        android:layout_toEndOf="@id/orderTotalLabelTV"
+        android:textSize="30sp"
+        android:padding="5dp"
+        android:ems="7"/>
+
+    <TextView
+        android:id="@+id/itemOrderedLabelTV"
+        style="@style/TextSizeType"
+        android:layout_below="@id/orderTotalLabelTV"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:text="@string/items_order" />
+
+    <TextView
+        android:id="@+id/itemOrderTextView"
+        style="@style/TextSizeType"
+        android:ems="10"
+        android:layout_toRightOf="@id/itemOrderedLabelTV"
+        android:layout_toEndOf="@id/itemOrderedLabelTV"
+        android:layout_alignBottom="@id/itemOrderedLabelTV" />
+
+    <TextView
+        android:id="@+id/subtotalLabelTV"
+        style="@style/TextSizeType"
+        android:layout_below="@id/itemOrderedLabelTV"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:text="@string/sub_total"/>
+
+    <TextView
+        android:id="@+id/subTotalTextView"
+        style="@style/TextSizeType"
+        android:ems="10"
+        android:layout_toRightOf="@id/subtotalLabelTV"
+        android:layout_toEndOf="@id/subtotalLabelTV"
+        android:layout_alignBottom="@id/subtotalLabelTV"/>
+
+    <TextView
+        android:id="@+id/taxLabelTV"
+        style="@style/TextSizeType"
+        android:layout_below="@id/subtotalLabelTV"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:text="@string/tax" />
+
+    <TextView
+        android:id="@+id/taxTextView"
+        style="@style/TextSizeType"
+        android:ems="10"
+        android:layout_toRightOf="@id/taxLabelTV"
+        android:layout_toEndOf="@id/taxLabelTV"
+        android:layout_alignBottom="@id/taxLabelTV"/>
+
+    <Button
+        android:id="@+id/startNewOrderButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/taxLabelTV"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:textSize="20sp"
+        android:text="@string/start_new_order_button_text"
+        android:onClick="startNewOrderButton"/>
+
+</RelativeLayout>
