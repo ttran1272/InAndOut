@@ -21,10 +21,10 @@ public class SummaryActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
 
-        totalOrderTV.setText(String.valueOf(extras.getString("totalOrder")));
-        itemOrderedTV.setText(String.valueOf(extras.getString("itemOrdered")));
-        subTotalTV.setText(String.valueOf(extras.getString("subTotal")));
-        taxTV.setText(String.valueOf(extras.getString("tax")));
+        totalOrderTV.setText(extras.getString("totalOrder"));
+        itemOrderedTV.setText(extras.getString("itemOrdered"));
+        subTotalTV.setText(extras.getString("subTotal"));
+        taxTV.setText(extras.getString("tax"));
 
         Button startNewOrderButton = (Button) findViewById(R.id.startNewOrderButton);
         startNewOrderButton.setOnClickListener(new View.OnClickListener() {
