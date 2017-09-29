@@ -22,18 +22,18 @@ public class OrderActivity extends AppCompatActivity {
         anOrder = new Order();
         setContentView(R.layout.activity_order);
 
-        setOrder();
-        totalOrder = anOrder.calculateTotal();
-        subTotal = anOrder.calculateSubtotal();
-        tax = anOrder.calculateTax();
-        itemOrdered = anOrder.getNumberItemsOrdered();
-
         Button placeOrderButton = (Button) findViewById(R.id.placeOrderButton);
         placeOrderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent myIntent = new Intent(getApplicationContext() , SummaryActivity.class);
+                setOrder();
+                totalOrder = anOrder.calculateTotal();
+                subTotal = anOrder.calculateSubtotal();
+                tax = anOrder.calculateTax();
+                itemOrdered = anOrder.getNumberItemsOrdered();
+
+                Intent myIntent = new Intent(OrderActivity.this , SummaryActivity.class);
                 myIntent.putExtra("totalOrder", "$" + totalOrder);
                 myIntent.putExtra("itemOrdered", "" + itemOrdered);
                 myIntent.putExtra("subTotal", "$" + subTotal);
@@ -46,7 +46,7 @@ public class OrderActivity extends AppCompatActivity {
     /**
      * This function gets the order details from the user input and initialize the Order model
      */
-    private void setOrder(){
+    protected void setOrder(){
 
         EditText doubleDoubleET = (EditText) findViewById(R.id.doubleDoubleEditText);
         EditText cheeseBurgerET = (EditText) findViewById(R.id.cheeseBurgerEditText);
@@ -56,68 +56,46 @@ public class OrderActivity extends AppCompatActivity {
         EditText drinkMediumET = (EditText) findViewById(R.id.mediumSizeEditText);
         EditText drinkLargeET = (EditText) findViewById(R.id.largeSizeEditText);
 
-        /**
+
         try {
 
-            if (doubleDoubleET.getText().toString() != null) {
+            if (doubleDoubleET.getText().toString() != "") {
                 int doubleDouble = Integer.parseInt(doubleDoubleET.getText().toString());
                 anOrder.setDoubleDoubles(doubleDouble);
             }
 
-            if (cheeseBurgerET.getText().toString() != null) {
+            if (cheeseBurgerET.getText().toString() != "") {
                 int cheeseburger = Integer.parseInt(cheeseBurgerET.getText().toString());
-                anOrder.setCheeseburgers(Integer.parseInt(cheeseBurgerET.getText().toString()));
+                anOrder.setCheeseburgers(cheeseburger);
             }
 
-            if (frenchFriesET.getText().toString() != null) {
+            if (frenchFriesET.getText().toString() != "") {
                 int frenchFries = Integer.parseInt(frenchFriesET.getText().toString());
-                anOrder.setFrenchFries(Integer.parseInt(frenchFriesET.getText().toString()));
+                anOrder.setFrenchFries(frenchFries);
             }
 
-            if (shakesET.getText().toString() != null) {
+            if (shakesET.getText().toString() != "") {
                 int shakes = Integer.parseInt(shakesET.getText().toString());
-                anOrder.setShakes(Integer.parseInt(shakesET.getText().toString()));
+                anOrder.setShakes(shakes);
             }
 
-            if (drinkSmallET.getText().toString() != null) {
+            if (drinkSmallET.getText().toString() != "") {
                 int smallDrink = Integer.parseInt(drinkSmallET.getText().toString());
-                anOrder.setSmallDrinks(Integer.parseInt(drinkSmallET.getText().toString()));
+                anOrder.setSmallDrinks(smallDrink);
             }
 
-            if (drinkMediumET.getText().toString() != null) {
+            if (drinkMediumET.getText().toString() != "") {
                 int mediumDrink = Integer.parseInt(drinkMediumET.getText().toString());
-                anOrder.setMediumDrinks(Integer.parseInt(drinkMediumET.getText().toString()));
+                anOrder.setMediumDrinks(mediumDrink);
             }
 
-            if (drinkLargeET.getText().toString() != null) {
+            if (drinkLargeET.getText().toString() != "") {
                 int largeDrink = Integer.parseInt(drinkLargeET.getText().toString());
-                anOrder.setLargeDrinks(Integer.parseInt(drinkLargeET.getText().toString()));
+                anOrder.setLargeDrinks(largeDrink);
             }
         }catch (NumberFormatException e){
             e.printStackTrace();
         }
-
-         **/
-         try {
-             int doubleDouble = Integer.parseInt(doubleDoubleET.getText().toString());
-             anOrder.setDoubleDoubles(doubleDouble);
-             int cheeseburger = Integer.parseInt(cheeseBurgerET.getText().toString());
-             anOrder.setCheeseburgers(cheeseburger);
-             int frenchFries = Integer.parseInt(frenchFriesET.getText().toString());
-             anOrder.setFrenchFries(frenchFries);
-             int shakes = Integer.parseInt(shakesET.getText().toString());
-             anOrder.setShakes(shakes);
-             int smallDrink = Integer.parseInt(drinkSmallET.getText().toString());
-             anOrder.setSmallDrinks(smallDrink);
-             int mediumDrink = Integer.parseInt(drinkMediumET.getText().toString());
-             anOrder.setMediumDrinks(mediumDrink);
-             int largeDrink = Integer.parseInt(drinkLargeET.getText().toString());
-             anOrder.setLargeDrinks(largeDrink);
-
-         }catch (NumberFormatException e) {
-             e.printStackTrace();
-         }
-
 
     }
 

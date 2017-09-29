@@ -36,11 +36,5 @@ public class SummaryActivity extends AppCompatActivity {
         });
     }
 
-    public void updateView(){
-
-        //
-
-    }
-
 
 }

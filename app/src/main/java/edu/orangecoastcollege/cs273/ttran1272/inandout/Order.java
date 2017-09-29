@@ -8,14 +8,14 @@ package edu.orangecoastcollege.cs273.ttran1272.inandout;
 public class Order {
 
     // Create constant variables
-    private static final double PRICE_CHEESEBURGER = 2.15;
-    private static final double PRICE_DOUBLE_DOUBLE = 3.60;
-    private static final double PRICE_FRENCH_FRIES = 1.65;
-    private static final double PRICE_LARGE_DRINK = 1.75;
-    private static final double PRICE_MEDIUM_DRINK = 1.55;
-    private static final double PRICE_SHAKE = 2.20;
-    private static final double PRICE_SMALL_DRINK = 1.45;
-    private static final double TAX_RATE = 0.075;
+    public static final double PRICE_CHEESEBURGER = 2.15;
+    public static final double PRICE_DOUBLE_DOUBLE = 3.60;
+    public static final double PRICE_FRENCH_FRIES = 1.65;
+    public static final double PRICE_LARGE_DRINK = 1.75;
+    public static final double PRICE_MEDIUM_DRINK = 1.55;
+    public static final double PRICE_SHAKE = 2.20;
+    public static final double PRICE_SMALL_DRINK = 1.45;
+    public static final double TAX_RATE = 0.075;
 
     // Create instance variables
     private int mCheeseburgers;
@@ -117,7 +117,7 @@ public class Order {
      * @return tax needs to be paid in an order
      */
     public double calculateTax() {
-        return calculateSubtotal() * TAX_RATE;
+        return Math.ceil(calculateSubtotal() * TAX_RATE);
     }
 
     /**
