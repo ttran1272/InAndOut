@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.text.NumberFormat;
+
 public class OrderActivity extends AppCompatActivity {
 
     // Create the Order instance
@@ -15,6 +17,9 @@ public class OrderActivity extends AppCompatActivity {
     private double subTotal;
     private double tax;
     private int itemOrdered;
+
+    public NumberFormat money = NumberFormat.getCurrencyInstance();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +31,6 @@ public class OrderActivity extends AppCompatActivity {
         placeOrderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 setOrder();
                 totalOrder = anOrder.calculateTotal();
                 subTotal = anOrder.calculateSubtotal();
@@ -34,10 +38,10 @@ public class OrderActivity extends AppCompatActivity {
                 itemOrdered = anOrder.getNumberItemsOrdered();
 
                 Intent myIntent = new Intent(OrderActivity.this , SummaryActivity.class);
-                myIntent.putExtra("totalOrder", "$" + totalOrder);
+                myIntent.putExtra("totalOrder", "" + money.format(totalOrder));
                 myIntent.putExtra("itemOrdered", "" + itemOrdered);
-                myIntent.putExtra("subTotal", "$" + subTotal);
-                myIntent.putExtra("tax", "$" + tax );
+                myIntent.putExtra("subTotal", "" + money.format(subTotal));
+                myIntent.putExtra("tax", "" + money.format(tax));
                 startActivity(myIntent);
             }
         });
@@ -56,46 +60,69 @@ public class OrderActivity extends AppCompatActivity {
         EditText drinkMediumET = (EditText) findViewById(R.id.mediumSizeEditText);
         EditText drinkLargeET = (EditText) findViewById(R.id.largeSizeEditText);
 
-
         try {
-
             if (doubleDoubleET.getText().toString() != "") {
                 int doubleDouble = Integer.parseInt(doubleDoubleET.getText().toString());
                 anOrder.setDoubleDoubles(doubleDouble);
             }
+        }catch (NumberFormatException e){
+            e.printStackTrace();
+        }
 
+        try {
             if (cheeseBurgerET.getText().toString() != "") {
                 int cheeseburger = Integer.parseInt(cheeseBurgerET.getText().toString());
                 anOrder.setCheeseburgers(cheeseburger);
             }
+        }catch (NumberFormatException e){
+            e.printStackTrace();
+        }
 
+        try {
             if (frenchFriesET.getText().toString() != "") {
                 int frenchFries = Integer.parseInt(frenchFriesET.getText().toString());
                 anOrder.setFrenchFries(frenchFries);
             }
+        }catch (NumberFormatException e){
+            e.printStackTrace();
+        }
 
+        try {
             if (shakesET.getText().toString() != "") {
                 int shakes = Integer.parseInt(shakesET.getText().toString());
                 anOrder.setShakes(shakes);
             }
+        }catch (NumberFormatException e){
+            e.printStackTrace();
+        }
 
+        try {
             if (drinkSmallET.getText().toString() != "") {
                 int smallDrink = Integer.parseInt(drinkSmallET.getText().toString());
                 anOrder.setSmallDrinks(smallDrink);
             }
+        }catch (NumberFormatException e){
+            e.printStackTrace();
+        }
 
+        try {
             if (drinkMediumET.getText().toString() != "") {
                 int mediumDrink = Integer.parseInt(drinkMediumET.getText().toString());
                 anOrder.setMediumDrinks(mediumDrink);
             }
+        } catch (NumberFormatException e){
+            e.printStackTrace();
+        }
 
+        try {
             if (drinkLargeET.getText().toString() != "") {
                 int largeDrink = Integer.parseInt(drinkLargeET.getText().toString());
                 anOrder.setLargeDrinks(largeDrink);
             }
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e){
             e.printStackTrace();
         }
+
 
     }
 
